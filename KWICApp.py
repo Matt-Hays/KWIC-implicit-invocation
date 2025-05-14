@@ -8,8 +8,8 @@ from typing import List
 
 class KWICApp:
     def __init__(self):
-        self._bus = EventBus()
-        self._repo = LineStorage()
+        self._bus = EventBus() # Event processor
+        self._repo = LineStorage() # Shared data storage
         self._shifter = CircularShifter(self._bus, self._repo)
         Alphabetizer(self._bus, self._repo)
         IndexPrinter(self._bus, self._repo)
