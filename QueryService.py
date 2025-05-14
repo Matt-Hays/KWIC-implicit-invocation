@@ -7,7 +7,7 @@ class QueryService:
         self._map = shift_map
         
         
-    def search(self, keyword: str) -> List[str]:
+    def search(self, keyword: str) -> List[Dict[str, any]]:
         leader = keyword.lower() + " "
         hits = [
             {

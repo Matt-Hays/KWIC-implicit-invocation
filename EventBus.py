@@ -8,6 +8,6 @@ class EventBus:
     def subscribe(self, event: str, handler: Callable):
         self._subscribers[event].append(handler)
         
-    def publish(self, event:str, **payload):
+    def publish(self, event:str, **kwargs):
         for handler in list(self._subscribers.get(event, [])):
-            handler(**payload)
+            handler(**kwargs)
