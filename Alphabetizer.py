@@ -9,5 +9,6 @@ class Alphabetizer:
 
     def _on_shifts_ready(self) -> None:
         while self._repo.has_pending_shifts():
-            self._repo.insert_sorted(self._repo.pop_pending_shift())
+            self._repo.insert_sorted(self._repo.pop_pending_shift().lower())
         self._bus.publish("index_updated")
+

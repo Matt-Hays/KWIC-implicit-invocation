@@ -1,7 +1,6 @@
+from typing import Dict, Tuple
 from EventBus import EventBus
 from LineStorage import LineStorage
-from typing import Dict, Tuple
-
 
 class CircularShifter:
     def __init__(self, bus: EventBus, repo: LineStorage) -> None:
@@ -12,7 +11,11 @@ class CircularShifter:
     def _on_line_added(self, line_id: int, text: str) -> None:
         words = text.split()
         for i in range(len(words)):
-            shifted = " ".join(words[i:] + words[:i])
+            shifted = " ".join(words[i:] + words[:i]).lower()
             self._repo.add_shift(shifted)
             self._shift2line[shifted] = (line_id, i)
         self._bus.publish("shifts_ready")
+        
+    @property
+    def shift_map(self) -> Dict[str, Tuple[int, int]]:
+        return self._shift2line
