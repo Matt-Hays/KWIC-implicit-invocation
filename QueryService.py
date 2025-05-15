@@ -9,6 +9,7 @@ class QueryService:
         
     def search(self, keyword: str) -> List[Dict[str, any]]:
         leader = keyword.lower() + " "
+
         hits = [
             {
                 "line_id": self._map[s][0],

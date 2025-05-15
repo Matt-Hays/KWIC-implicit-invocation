@@ -5,5 +5,6 @@ if __name__ == "__main__":
     kwic.add_line("The quick brown fox")
     kwic.add_line("Jumped over the lazy dog")
     
-    hits = kwic.find("over")
-    print("\nQUERY 'over ->", hits)
+    search_term = "fox"
+    hits = kwic.find(search_term)
+    print(f"\nQUERY '{search_term} -> {hits}")
