@@ -6,6 +6,7 @@ from IndexPrinter import IndexPrinter
 # from QueryService import QueryService
 # from typing import List
 
+
 class KWICApp:
     def __init__(self):
         self._bus = EventBus() # Event processor
